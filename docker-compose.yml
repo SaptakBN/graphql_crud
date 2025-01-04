@@ -1,0 +1,25 @@
+services:
+  backend:
+    container_name: server
+    build:
+      context: ./server
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./server:/usr/src/server
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=${PORT}
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:5.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
