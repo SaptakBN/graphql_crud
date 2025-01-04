@@ -6,7 +6,7 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - ./server:/usr/src/server
+      - ./server:/server
     environment:
       - MONGO_URI=${MONGO_URI}
       - PORT=${PORT}
