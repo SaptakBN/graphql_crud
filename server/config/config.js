@@ -1,7 +1,7 @@
 import "dotenv/config";
 
 const config = {
-  mongoURI: process.env.MONGO_URI,
+  mongoURI: `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DATABASE}`,
   port: process.env.PORT || 4000,
 };
 

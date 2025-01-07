@@ -8,8 +8,10 @@ services:
     volumes:
       - ./server:/server
     environment:
-      - MONGO_URI=${MONGO_URI}
       - PORT=${PORT}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DATABASE=${DATABASE}
     depends_on:
       - mongo
 
@@ -17,7 +19,7 @@ services:
     image: mongo:5.0
     container_name: mongodb
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - mongo_data:/data/db
 
